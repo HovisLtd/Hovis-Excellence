@@ -1,0 +1,35 @@
+﻿@model Hovis.Excellence.Web.Models.PersonRole
+
+<header class="header">
+    <h3>Delete Role</h3>
+</header>
+<div class="content-wrap">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <section class="panel">
+                <div class="panel-body ">
+
+                    @if (Model.People.Count > 0)
+                    {
+                        <p>This Person Role cannot be deleted as there are people assigned to it.</p>
+                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        <p>Do you really want to delete the role - @Model.Name</p>
+
+                        using (Html.BeginForm("Delete", "PersonRole", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(x => x.Id)
+                            ;
+                            <a href="@Url.Action("Index")" class="btn btn-success">No</a>
+                            <input type="submit" class="btn btn-danger" value="Yes" />
+                        }
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

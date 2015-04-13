@@ -1,0 +1,65 @@
+﻿@using Hovis.Excellence.Web.Helpers
+@model IEnumerable<Hovis.Excellence.Web.Models.DocumentType>
+
+<header class="header">
+    <h3>Document Types</h3>
+</header>
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+
+        <div class="col-lg-12 ">
+            @Html.Alerts()
+
+            <a href="@Url.Action("New")" class="btn btn-success">Add New</a>
+            <br />
+            <br />
+            @if (Model.Any())
+            {
+
+                <section class="panel ">
+                    <div class="panel-body no-padding ">
+
+                        <table class="table no-margin ">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-5 pd-l-lg ">
+                                        <span class="pd-l-sm "></span>Name
+                                    </th>
+                                    <th class="col-md-2 ">Number of Documents</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Name
+                                        </td>
+                                        <td>
+                                            @item.Documents.Count()
+                                        </td>
+                                        <td>
+                                            @if (item.Documents.Count == 0)
+                                            {
+                                                <a href="@Url.Action("Delete", new {id = item.Id})" c class="btn btn-danger btn-xs">Delete</a>
+                                            }
+                                            <a href="@Url.Action("Edit", new { id = item.Id })" c class="btn btn-success btn-xs">Edit</a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            }
+            else
+            {
+                <p>No Document Types. </p>
+            }
+        </div>
+    </div>
+</div>
+<!-- /content wrapper -->

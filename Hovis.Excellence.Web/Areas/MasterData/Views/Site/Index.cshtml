@@ -1,0 +1,48 @@
+﻿@using Hovis.Excellence.Web.Helpers
+@model IEnumerable<Hovis.Excellence.Web.Areas.MasterData.ViewModels.SiteListViewModel>
+
+<header class="header">
+    <h3>Sites</h3>
+</header>
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Alerts()
+
+            <a href="@Url.Action("New")" class="btn btn-success">Add New</a>
+            <br />
+            <br />
+            <section class="panel bg-none">
+                <div class="panel-group" id="accordion">
+
+                    @{ var i = 0; }
+
+                    @foreach (var siteCategoryViewModel in Model)
+                    {
+                        i++;
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#@string.Join("","collapse",i)">
+                                    @siteCategoryViewModel.CategoryName
+                                </a>
+                            </div>
+                            <div id="@string.Join("","collapse",i)" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        @foreach (var site in siteCategoryViewModel.Sites)
+                                        {
+                                            <li style="margin-bottom: 15px;">
+                                                @Html.ActionLink(@site.Name, "Edit", new { id = site.Id })
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

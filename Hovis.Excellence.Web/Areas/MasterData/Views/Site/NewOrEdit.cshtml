@@ -1,0 +1,107 @@
+﻿@model Hovis.Excellence.Web.Areas.MasterData.ViewModels.SiteAddEditViewModel
+
+<header class="header">
+    @if (Model.Site.Id == 0)
+    {
+        <h3>New Site</h3>
+    }
+    else
+    {
+        <h3>Edit Site</h3>
+    }
+</header>
+
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content ">
+                @using (Html.BeginForm("Save", "Site", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.Site.Id)
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">Site Details</header>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Site.SiteCategory)
+                                        @Html.DropDownListFor(x => x.Site.SiteCategoryId, new SelectList(Model.AvailableSiteCategories, "Id", "Name"), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Site.SiteCategoryId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Site.Name)
+                                        @Html.TextBoxFor(x => x.Site.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Site.Name, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Site.Description)
+                                        @Html.TextBoxFor(x => x.Site.Description, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Site.BusinessUnit)
+                                        @Html.TextBoxFor(x => x.Site.BusinessUnit, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Site.RiskHealthManager)
+                                        @Html.TextBoxFor(x => x.Site.RiskHealthManager, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(x => x.Site.UtilyxUtilitySiteCodes)
+                                        @Html.TextBoxFor(x => x.Site.UtilyxUtilitySiteCodes, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">Environmental Reporting Settings</header>
+                                <div class="panel-body">
+
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(x => x.Site.IncludeInBoardReport)
+                                            Include in board report?
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(x => x.Site.MillingSite)
+                                            Milling Site?
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(x => x.Site.DivestedSite)
+                                            Divested site?
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="panel">
+                                <div class="panel-body">
+                                    @if (Model.Site.Id > 0)
+                                    {
+                                        @Html.ActionLink("Delete", "Delete", "Site", new { id = Model.Site.Id }, new { @class = "btn btn-danger" })
+                                        <span>&nbsp;&nbsp;&nbsp;</span>
+                                    }
+                                    <button type="submit" class="btn btn-default">Save</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

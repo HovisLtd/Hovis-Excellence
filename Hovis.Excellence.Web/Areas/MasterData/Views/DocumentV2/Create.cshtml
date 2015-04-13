@@ -1,0 +1,143 @@
+﻿@model Hovis.Excellence.Web.Models.Document
+
+<header class="header">
+        <h3>New Document </h3>
+</header>
+
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content ">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @*@Html.HiddenFor(x => x.Document.Id)*@
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">Document Details</header>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Title)
+                                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", id = "documentTitle" })
+                                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IssueNumber)
+                                        @Html.TextBoxFor(model => model.IssueNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IssueNumber, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+              
+                                            @Html.LabelFor(model => model.IssueDate)
+                                            <div class="input-group mg-b-md input-append date datepicker" data-date="@DateTime.Now.ToString("dd/MM/yyyy")" data-date-format="dd/mm/yyyy">
+                                                @Html.EditorFor(model => model.IssueDate, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.IssueDate, "", new { @class = "text-danger" })
+                                                <span class=" input-group-btn">
+                                                    <button class="btn btn-white add-on" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+             
+
+                                            @*<div class="input-group mg-b-md input-append date datepicker" data-date="@DateTime.Now.ToString("dd-MM-yyyy")" data-date-format="dd-mm-yyyy">
+                @Html.LabelFor(model => model.IssueDate, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.IssueDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IssueDate, "", new { @class = "text-danger" })
+                <span class=" input-group-btn">
+                    <button class="btn btn-white add-on" type="button">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>*@
+                                        </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description)
+                                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Owner)
+                                        @Html.TextBoxFor(model => model.Owner, new { @class = "form-control", id = "documentOwner" })
+                                        @Html.ValidationMessageFor(model => model.Owner, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ReviewPeriodInMonths, htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownListFor(model => model.ReviewPeriodInMonths, (SelectList)ViewBag.ReviewPeriods, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ReviewPeriodInMonths, "", new { @class = "text-danger" })
+                                        @*@Html.LabelFor(model => model.ReviewPeriodInMonths)
+                                        @Html.DropDownListFor(model => model.ReviewPeriodInMonths, ViewBag.ReviewPeriods, new { @class = "form-control" })*@
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <section class="panel">
+                                <header class="panel-heading">Categorisation</header>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ApplicationId, "Application", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("ApplicationId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ApplicationId, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DocumentCategoryId, "Document Category", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("DocumentCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.DocumentCategoryId, "", new { @class = "text-danger" })                                    </div>
+
+                                    <hr />
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DocumentTypeId, "Document Type", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.DocumentTypeId, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <hr />
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DocumentTabsId, "Document Tabs", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("DocumentTabsId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.DocumentTabsId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+<script type="text/javascript">
+    //$(document).ready(function () {
+        $(".datepicker").datepicker({
+            autoclose: true,
+            format: "dd/mm/yyyy"
+        });
+        $.validator.methods["date"] = function (value, element) { return true; };
+    //});
+</script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,157 @@
+﻿@model Hovis.Excellence.Web.Models.DocumentLinks
+
+@{
+    ViewBag.Title = "Create";
+}
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content ">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.DocID)
+                @Html.HiddenFor(model => model.FileLink, new { id = "documentFileLink" })
+    <div class="row">
+        <div class="col-lg-6">
+               <section class="panel">
+                    <header class="panel-heading">File</header>
+                    <div class="panel-body" id="chooseFileBlock">
+                        <a class="btn btn-success" id="chooseFromGoogleDriveButton">Choose from Google Drive</a>
+                        @Html.ValidationMessageFor(model => model.FileLink, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="panel-body" id="fileChosenBlock" style="display: none">
+                        <strong>File:</strong> <a id="chosenFileLink" target="_blank"></a>
+                        <a class="btn btn-warning btn-xs" id="changeFileButton">Change</a>
+                    </div>
+                </section>
+            <section class="panel">
+                <header class="panel-heading">Document Details</header>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title)
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", id = "documentTitle" })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.DocID)
+                        @Html.TextBoxFor(model => model.DocID, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DocID, "", new { @class = "text-danger" })
+                    </div>*@
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateCreated)
+                        <div class="input-group mg-b-md input-append date datepicker" data-date="@DateTime.Now.ToString("dd-MM-yyyy")" data-date-format="dd-mm-yyyy">
+                            <input type="text" class="form-control" value="@DateTime.Now.ToString("dd-MM-yyyy")" name="model.DateCreated">
+                            <span class=" input-group-btn">
+                                <button class="btn btn-white add-on" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description)
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Owner)
+                        @Html.TextBoxFor(model => model.Owner, new { @class = "form-control", id = "documentOwner" })
+                        @Html.ValidationMessageFor(model => model.Owner, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(x => x.Document.ReviewPeriodInMonths)
+                        @Html.DropDownListFor(x => x.Document.ReviewPeriodInMonths, Model.ReviewPeriods, new { @class = "form-control" })*@
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">Categorisation</header>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.DocType)
+                        @Html.DropDownList("DocType", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DocType, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(x => x.Document.DocumentCategory)
+                        @Html.DropDownListFor(x => x.Document.DocumentCategoryId, new SelectList(Model.DocumentCategories, "Id", "Name"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Document.DocumentCategoryId, "", new { @class = "text-danger" })*@
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        @*@Html.LabelFor(x => x.Document.DocumentType)
+                        @Html.DropDownListFor(x => x.Document.DocumentTypeId, new SelectList(Model.DocumentTypes, "Id", "Name"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Document.DocumentTypeId, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+            </section>
+            <section class="panel">
+                <div class="panel-body">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    @*@Html.ActionLink("Back to List", "Index", "Documents", new { id = Model.DocID }, new { @class = "btn btn-success" })*@
+                </div>
+                <div>
+                </div>
+            </section>
+        </div>
+    </div>
+            }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="/Scripts/googleDrive.filePicker.js"></script>
+    <script>
+
+        //alow validation message to show for hidden fields
+        $.validator.setDefaults({ ignore: null });
+
+        $(".datepicker").datepicker();
+
+        function initPicker() {
+            var picker = new FilePicker({
+
+                //these settings are here
+                //https://console.developers.google.com/project/hovis-excellence/apiui/credential?clientType#
+                apiKey: 'AIzaSyBLMSWTgMWC1fEekn1YbCqS2znA-5IF8qk',
+                clientId: '745758001127-84v8k3eetk0c8df56f5u6oj4rk3atnbu',
+
+                buttonEl: document.getElementById('chooseFromGoogleDriveButton'),
+                onSelect: function (file) {
+
+                    var title = file.title;
+                    //var fileLink = file.embedLink;
+                    var fileLink = 'https://drive.google.com/file/d/' + file.id + '/view?usp=sharing';
+                    var owner = file.ownerNames[0];
+
+                    $('#documentTitle').val(title);
+                    $('#documentFileLink').val(fileLink);
+                    $('#documentOwner').val(owner);
+
+                    $('#chosenFileLink').text(title);
+                    $('#chosenFileLink').attr('href', fileLink);
+                    //$('#chosenFileLink').attr('href', file.embedLink);
+
+                    $('#fileChosenBlock').show();
+                    $('#chooseFileBlock').hide();
+                }
+            });
+        }
+
+        $('#changeFileButton').click(function () {
+            $('#fileChosenBlock').hide();
+            $('#chooseFileBlock').show();
+        });
+    </script>
+    <script src="https://www.google.com/jsapi?key=AIzaSyCzDz4MwpHZJnXrZnr-8UpNShTjrUOcxQU"></script>
+    <script src="https://apis.google.com/js/client.js?onload=initPicker"></script>
+}

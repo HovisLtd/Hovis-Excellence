@@ -1,0 +1,47 @@
+﻿<ul>
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/health-and-safety") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="HealthAndSafety"})">
+            <span>Health & Safety</span>
+        </a>
+    </li>
+
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/customer-loyalty") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="CustomerLoyalty"})">
+            <span>Customer Loyalty</span>
+        </a>
+    </li>
+
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/environment") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="Environment"})">
+            <span>Environment</span>
+        </a>
+    </li>
+
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/perfect-equipment") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="PerfectEquipment"})">
+            <span>Perfect Equipment</span>
+        </a>
+    </li>
+
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/operations-excellence") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="OperationsExcellence"})">
+            <span>Operations Excellence</span>
+        </a>
+    </li>
+
+    <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/baker-of-choice") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Home", new{area="BakerofChoice"})">
+            <span>Baker of Choice</span>
+        </a>
+    </li>
+</ul>
+<hr />
+
+<ul>
+
+    <li>
+        <a href="mailto:Excellence@hovis.co.uk" style="font-weight: bold; color:#ffe900">
+            <span>Contact</span>
+        </a>
+    </li>
+</ul>

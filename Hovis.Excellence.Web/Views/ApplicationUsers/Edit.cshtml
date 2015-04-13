@@ -1,0 +1,72 @@
+﻿@model Hovis.Excellence.Web.ViewModels.ApplicationUserViewModel
+
+<header class="header">
+    <h3>Add A New User</h3>
+</header>
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="tab-content ">
+
+                @using (Html.BeginForm("Edit", "ApplicationUsers", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.Id)
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <section class="panel">
+                                <header class="panel-heading">User Details</header>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.Email)
+                                        @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.FirstName)
+                                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.LastName)
+                                        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">Roles</header>
+                                <div class="panel-body">
+
+                                    @foreach (var role in ViewBag.AvailableRoles)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="SelectedRoles" value="@role.Name" @(Model.SelectedRoles.Any(x => x.Equals(role.Name)) ? "checked" : "")>@role.Name
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </section>
+
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <button type="submit" class="btn btn-succss">Save</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

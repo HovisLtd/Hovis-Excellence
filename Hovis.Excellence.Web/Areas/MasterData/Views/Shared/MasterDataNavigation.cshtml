@@ -1,0 +1,97 @@
+﻿<ul>
+    @if (User.IsInRole("Admin"))
+    {
+        <li class="show-on-hover @(@Request.Url.AbsolutePath.StartsWith("/masterdata/sites") ? "active" : "") ">
+            <a href="@Url.Action("Index", "Site", new{area="MasterData"}, null)">
+                <span>Sites</span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("View Sites", "Index", "Site", new { area = "MasterData" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Add Site", "New", "Site", new { area = "MasterData" }, null)
+                </li>
+
+                <li class="divider"></li>
+
+                @if (User.IsInRole("Admin"))
+                    {
+                    <li>
+                        @Html.ActionLink("Manage Site Categories", "Index", "SiteCategories", new { area = "MasterData" }, null)
+                    </li>
+                    }
+            </ul>
+        </li>
+    }
+
+    <li class="dropdown show-on-hover  @(@Request.Url.AbsolutePath.StartsWith("/masterdata/people") ? "active" : "") ">
+        <a href="@Url.Action("Index", "Person", new { area = "MasterData" }, null)">
+            <span>People</span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li>
+                @Html.ActionLink("View People", "Index", "Person", new { area = "MasterData" }, null)
+            </li>
+            <li>
+                @Html.ActionLink("Add New Person", "New", "Person", new { area = "MasterData" }, null)
+            </li>
+
+            <li class="divider"></li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    @Html.ActionLink("Manage People Job Roles", "Index", "PersonRole", new { area = "MasterData" }, null)
+                </li>
+            }
+        </ul>
+    </li>
+    @if (User.IsInRole("Admin"))
+    {
+        <li class="dropdown show-on-hover  @(@Request.Url.AbsolutePath.StartsWith("/masterdata/documents") ? "active" : "") ">
+            <a href="@Url.Action("Index", "DocumentV2", new {area = "MasterData"}, null)">
+                <span>Documents</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("List Documents", "Index", "DocumentV2", new { area = "MasterData" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Add New Document", "Create", "DocumentV2", new { area = "MasterData" }, null)
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    @Html.ActionLink("Manage Document Types", "Index", "DocumentType", new { area = "MasterData" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Manage Document Categories", "Index", "DocumentCategory", new { area = "MasterData" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Manage Document Tabs", "Index", "DocumentTabs", new { area = "MasterData" }, null)
+                </li>
+            </ul>
+        </li>
+    }
+
+    @if (User.IsInRole("Admin"))
+    {
+        <hr />
+        <li class="dropdown show-on-hover  @(@Request.Url.AbsolutePath.StartsWith("/applicationusers") ? "active" : "") ">
+            <a href="@Url.Action("Index", "ApplicationUsers", new {area = ""}, null)">
+                <span>Application Users</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("List Users", "Index", "ApplicationUsers", new { area = "" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Add New User", "New", "ApplicationUsers", new { area = "" }, null)
+                </li>
+            </ul>
+        </li>
+    }
+</ul>

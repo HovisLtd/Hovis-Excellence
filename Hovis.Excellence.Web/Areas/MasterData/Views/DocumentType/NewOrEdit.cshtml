@@ -1,0 +1,53 @@
+﻿@model Hovis.Excellence.Web.Models.DocumentType
+
+    <header class="header">
+        @if (Model.Id == 0)
+        {
+            <h3>New Document Type</h3>
+        }
+        else
+        {
+            <h3>Edit Document Type</h3>
+        }
+    </header>
+    <!-- content wrapper -->
+    <div class="content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li>
+                        @Html.ActionLink("< Back to documents", "Index")
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-12">
+                <div class="tab-content ">
+                    @using (Html.BeginForm("Save", "DocumentType", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.Id)
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading">Document Type Details</header>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            @Html.LabelFor(x => x.Name)
+                                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /content wrapper -->

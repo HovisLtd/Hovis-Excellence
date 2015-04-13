@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Hovis.Excellence.Web.Models.DocumentLinks>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.ActionLink("Create New", "Create", null, new { id = ViewBag.id }, new { @class = "btn btn-success" })
+            <br />
+            <br />
+            <section class="panel">
+                <div class="panel-body no-padding">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th class="col-md-5 pd-l-lg">
+                                    <span class="pd-l-sm"></span>@Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th class="col-md-2">@Html.DisplayNameFor(model => model.Description)</th>
+                                <th class="col-md-2">@Html.DisplayNameFor(model => model.Owner)</th>
+                                <th class="col-md-2">@Html.DisplayNameFor(model => model.DateCreated)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title) &nbsp; &nbsp; <a href="@Html.DisplayFor(modelItem => item.FileLink)" class="btn btn-success btn-xs" target="_blank">View</a>
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Owner)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateCreated)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", "DocumentLinks", new { id = item.Id }, new { @class = "btn btn-success btn-xs" })
+                                        @Html.ActionLink("Delete", "Delete", "DocumentLinks", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

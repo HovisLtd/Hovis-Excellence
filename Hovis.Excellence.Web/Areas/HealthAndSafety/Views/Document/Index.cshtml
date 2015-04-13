@@ -1,0 +1,76 @@
+﻿@model Hovis.Excellence.Web.Models.Document
+<header class="header">
+    <h3>@Model.Title</h3>
+</header>
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/health-and-safety">
+                        < Back to documents
+                    </a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="col-md-6">
+            <section class="panel">
+                <table class="table no-margin">
+
+                    <tbody>
+                        <tr>
+                            <td class="col-md-4">Owner</td>
+                            <td>@Model.Owner</td>
+                        </tr>
+
+                        <tr>
+                            <td>Issue Number</td>
+                            <td>@Model.IssueNumber</td>
+                        </tr>
+
+                        <tr>
+                            <td>Issue Date</td>
+                            <td>@Model.IssueDate.ToShortDateString()</td>
+                        </tr>
+
+                        <tr>
+                            <td>Review Period</td>
+                            <td>
+                                @if (Model.ReviewPeriodInMonths > 0)
+                                {
+                                    <span>@Model.ReviewPeriodInMonths Months</span>
+                                }
+                                else
+                                {
+                                    <span>Not Applicable</span>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Description</td>
+                            <td>@Model.Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div class="col-md-6">
+
+            <section class="panel">
+                <header class="panel-heading">Files</header>
+                <div class="panel-body">
+                    <div class="fa-hover col-md-3 col-sm-4">
+                        @Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = Model.Id, area = "MasterData" }, new { @class = "btn btn-info btn-xs" })
+                        @*<a href="" class="btn btn-info" target="_blank"> Docs</a>*@
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- /content wrapper -->

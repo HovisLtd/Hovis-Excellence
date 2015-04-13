@@ -1,0 +1,145 @@
+﻿@model Hovis.Excellence.Web.Areas.MasterData.ViewModels.PeopleListViewModel
+@using Hovis.Excellence.Web.Helpers
+
+<header class="header headerWithTabs navbar bg-default">
+    <div class="navbar-header mg-r-lg">
+        <h3>
+            People
+        </h3>
+    </div>
+    <div class="clearfix"></div>
+
+    <ul class="nav navbar-nav nav-tabs">
+        <li class="active">
+            <a href="#bySite" data-toggle="tab">By Site</a>
+        </li>
+        <li class="">
+            <a href="#byRole" data-toggle="tab">By Role</a>
+        </li>
+    </ul>
+</header>
+
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Alerts()
+
+            <a href="@Url.Action("New")" class="btn btn-success">Add New</a>
+            <br />
+            <br />
+            <section class="tab-content ">
+
+                <section class="tab-pane active" id="bySite">
+                    <div class="panel-group" id="accordion">
+
+                        @{ var bySiteItemIndex = 0; }
+                        @foreach (var bySiteItem in Model.BySite)
+                        {
+                            bySiteItemIndex++;
+
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#@string.Join("","bySiteCollapse",bySiteItemIndex)">
+                                        @bySiteItem.Name
+                                    </a>
+                                </div>
+                                <div id="@string.Join("", "bySiteCollapse", bySiteItemIndex)" class="panel-collapse collapse">
+                                    <section class="panel">
+                                        <div class="panel-body no-padding">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-5 pd-l-lg">
+                                                            <span class="pd-l-sm"></span>Name
+                                                        </th>
+                                                        <th class="col-md-2">Job Role</th>
+                                                        <th class="col-md-2">Employee Number</th>
+                                                        <th class="col-md-2"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var person in bySiteItem.People)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <span class="pd-l-sm"></span>
+                                                                @Html.ActionLink(person.Name, "Edit", new { id = @person.Id })
+                                                            </td>
+                                                            <td>@person.Role.Name</td>
+                                                            <td>@person.EmployeeNumber</td>
+                                                            <td>
+                                                                @Html.ActionLink("Edit", "Edit", new { id = @person.Id }, new { @class = "btn btn-xs btn-success" })
+                                                                @Html.ActionLink("Delete", "Delete", new { id = @person.Id }, new { @class = "btn btn-xs btn-danger" })
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </section>
+
+                <section class="tab-pane" id="byRole">
+
+                    <div class="panel-group" id="accordion">
+
+                        @{ var byRoleItemIndex = 0; }
+                        @foreach (var byRoleItem in Model.ByRole)
+                        {
+                            byRoleItemIndex++;
+
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#@string.Join("", "byRoleCollapse", byRoleItemIndex)">
+                                        @byRoleItem.Name
+                                    </a>
+                                </div>
+                                <div id="@string.Join("", "byRoleCollapse", byRoleItemIndex)" class="panel-collapse collapse">
+                                    <section class="panel">
+                                        <div class="panel-body no-padding">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-5 pd-l-lg">
+                                                            <span class="pd-l-sm"></span>Name
+                                                        </th>
+                                                        <th class="col-md-2">Site</th>
+                                                        <th class="col-md-2">Employee Number</th>
+                                                        <th class="col-md-2"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var person in byRoleItem.People)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <span class="pd-l-sm"></span>
+                                                                @Html.ActionLink(person.Name, "Edit", new { id = @person.Id })
+                                                            </td>
+                                                            <td>@person.Site.Name</td>
+                                                            <td>@person.EmployeeNumber</td>
+                                                            <td>
+                                                                @Html.ActionLink("Edit", "Edit", new { id = person.Id }, new { @class = "btn btn-xs btn-success" })
+                                                                @Html.ActionLink("Delete", "Delete", new { id = person.Id }, new { @class = "btn btn-xs btn-danger" })
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+</div>

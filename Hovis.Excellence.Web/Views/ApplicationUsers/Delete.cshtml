@@ -1,0 +1,31 @@
+﻿@model Hovis.Excellence.Web.Models.ApplicationUser
+
+@using Hovis.Excellence.Web.Helpers
+@using WebGrease.Css.Extensions
+
+<header class="header">
+    <h3>Delete User</h3>
+</header>
+<!-- content wrapper -->
+<div class="content-wrap">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <section class="panel">
+                <div class="panel-body ">
+
+                    <p>Do you really want to delete user @Model.Email </p>
+
+                    @using (Html.BeginForm("Delete", "ApplicationUsers", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.Id);
+                        <a href="@Url.Action("Index")" class="btn btn-success">No</a>
+                        <input type="submit" class="btn btn-danger" value="Yes" />
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- /content wrapper -->

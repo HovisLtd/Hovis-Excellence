@@ -1,0 +1,35 @@
+﻿@model Hovis.Excellence.Web.Models.DocumentType
+
+<header class="header">
+    <h3>Delete Document Type</h3>
+</header>
+<div class="content-wrap">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <section class="panel">
+                <div class="panel-body ">
+
+                    @if (Model.Documents.Count > 0)
+                    {
+                        <p>This Document Type cannot be deleted as there are Documents assigned to it.</p>
+                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        <p>Do you really want to delete the Document Type - @Model.Name</p>
+
+                        using (Html.BeginForm("Delete", "DocumentType", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(x => x.Id)
+                            ;
+                            <a href="@Url.Action("Index")" class="btn btn-success">No</a>
+                            <input type="submit" class="btn btn-danger" value="Yes" />
+                        }
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

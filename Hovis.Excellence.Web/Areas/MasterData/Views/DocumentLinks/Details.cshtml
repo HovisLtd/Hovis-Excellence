@@ -1,0 +1,74 @@
+﻿@model Hovis.Web.Base.Models.t_HovisVPD_Documents
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t_HovisVPD_Documents</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t_HovisVPD_Document_Types_Drop_Down.TypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t_HovisVPD_Document_Types_Drop_Down.TypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t_HovisVPD_Details.RaisedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t_HovisVPD_Details.RaisedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
