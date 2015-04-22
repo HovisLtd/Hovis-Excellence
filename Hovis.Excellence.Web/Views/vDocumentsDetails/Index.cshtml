@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Hovis.Excellence.Web.Models.v_Documents_Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+<a href="@Url.Action("Report")">Get Version PDF</a>
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IssueNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IssueDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Owner)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReviewPeriodInMonths)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentTypeId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentCategoryId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentTabsId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentCategory)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentTab)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IssueNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IssueDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Owner)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReviewPeriodInMonths)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentTypeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentCategoryId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentTabsId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentCategory)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentTab)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateCreated)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </section>
+        </div>
+    </div>
+</div>

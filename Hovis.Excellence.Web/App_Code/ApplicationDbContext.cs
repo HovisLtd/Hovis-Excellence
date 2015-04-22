@@ -31,6 +31,8 @@ namespace Hovis.Excellence.Web
 
         public DbSet<DocumentTabs> DocumentTabs { get; set; }
 
+        public DbSet<v_Documents_Details> v_Documents_Details { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

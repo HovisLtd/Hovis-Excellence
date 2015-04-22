@@ -7,7 +7,6 @@ namespace Hovis.Excellence.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/content/bundles/css").Include(
-
                 "~/Content/bootstrap.css",
                 "~/Content/vendor/bootstrap-select/bootstrap-select.css",
                 "~/Content/vendor/dropzone/dropzone.css",
@@ -16,13 +15,10 @@ namespace Hovis.Excellence.Web
                 "~/Content/vendor/timepicker/jquery.timepicker.css",
                 "~/Content/vendor/offline/theme.css",
                 "~/Content/vendor/pace/theme.css",
-
                 "~/Content/css/animate.css",
-
                 "~/Content/css/skins/palette.1.css",
                 "~/Content/css/fonts/style.1.css",
                 "~/Content/css/main.css",
-
                 "~/Content/css/custom.css"
                 ));
 

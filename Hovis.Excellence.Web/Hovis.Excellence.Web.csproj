@@ -99,13 +99,34 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.ProcessingObjectModel\10.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -115,6 +136,14 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -175,6 +204,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\AppShared\DocumentController.cs" />
     <Compile Include="Areas\BakerofChoice\Controllers\HomeController.cs" />
     <Compile Include="Areas\CustomerLoyalty\Controllers\HomeController.cs" />
@@ -219,6 +249,7 @@
     <Compile Include="Areas\MasterData\Controllers\SiteController.cs" />
     <Compile Include="Areas\MasterData\Controllers\PersonController.cs" />
     <Compile Include="Controllers\HovisExcellenceController.cs" />
+    <Compile Include="Controllers\vDocumentsDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +257,16 @@
     <Compile Include="App_Code\Identity\ApplicationRoleManager.cs" />
     <Compile Include="App_Code\Identity\ApplicationSignInManager.cs" />
     <Compile Include="App_Code\Identity\ApplicationUserManager.cs" />
+    <Compile Include="hovisexcellence_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hovisexcellence_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hovisexcellence_dbDataSetV2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hovisexcellence_dbDataSetV2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201501262238413_InitialCreate.cs" />
     <Compile Include="Migrations\201501262238413_InitialCreate.Designer.cs">
       <DependentUpon>201501262238413_InitialCreate.cs</DependentUpon>
@@ -244,6 +285,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\v_Documents_Details.cs" />
     <Compile Include="Models\DocumentTabs.cs" />
     <Compile Include="Models\DocumentLinks.cs" />
     <Compile Include="Models\Document.cs" />
@@ -292,6 +334,7 @@
     <Content Include="Content\img\hovis-excellence-logo.png" />
     <Content Include="Content\img\lifelong-customer-loyalty.png" />
     <Content Include="Content\img\TOPS.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vendor\audioplayer\audioplayer.css" />
     <Content Include="Content\vendor\audioplayer\audioplayer.js" />
@@ -583,6 +626,28 @@
     <Content Include="Areas\MasterData\Views\DocumentV2\Create.cshtml" />
     <Content Include="Areas\MasterData\Views\DocumentV2\Edit.cshtml" />
     <Content Include="Areas\MasterData\Views\DocumentV2\Create - Copy.cshtml" />
+    <Content Include="hovisexcellence_dbDataSet.xsc">
+      <DependentUpon>hovisexcellence_dbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="hovisexcellence_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hovisexcellence_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="hovisexcellence_dbDataSet.xss">
+      <DependentUpon>hovisexcellence_dbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="hovisexcellence_dbDataSetV2.xsc">
+      <DependentUpon>hovisexcellence_dbDataSetV2.xsd</DependentUpon>
+    </Content>
+    <None Include="hovisexcellence_dbDataSetV2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hovisexcellence_dbDataSetV2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="hovisexcellence_dbDataSetV2.xss">
+      <DependentUpon>hovisexcellence_dbDataSetV2.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\HovisDocs %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\hovisdocs.pubxml" />
     <None Include="Properties\PublishProfiles\hovisexcellence.pubxml" />
@@ -630,8 +695,17 @@
     <Content Include="Views\Error\Error404.cshtml" />
     <Content Include="Views\Error\Error403.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Create.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Delete.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Details.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Edit.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Index.cshtml" />
+    <Content Include="Views\vDocumentsDetails\Index - Copy.cshtml" />
+    <Content Include="Views\vDocumentsDetails\IndexSearch.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -639,6 +713,7 @@
     <EmbeddedResource Include="Migrations\201501262238413_InitialCreate.resx">
       <DependentUpon>201501262238413_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Reports\VersionReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

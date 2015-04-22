@@ -1,0 +1,144 @@
+﻿@model Hovis.Excellence.Web.Models.v_Documents_Details
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>v_Documents_Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewPeriodInMonths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewPeriodInMonths)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentCategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentCategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentTabsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentTabsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentTab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentTab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

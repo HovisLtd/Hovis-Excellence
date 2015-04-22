@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="hovisexcellence_dbDataSetV2" targetNamespace="http://tempuri.org/hovisexcellence_dbDataSetV2.xsd" xmlns:mstns="http://tempuri.org/hovisexcellence_dbDataSetV2.xsd" xmlns="http://tempuri.org/hovisexcellence_dbDataSetV2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DefaultConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DefaultConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DefaultConnection.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_Documents_DetailsTableAdapter" GeneratorDataComponentClassName="v_Documents_DetailsTableAdapter" Name="v_Documents_Details" UserDataComponentName="v_Documents_DetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="hovisexcellence_db.dbo.v_Documents_Details" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Title, IssueNumber, IssueDate, Description, Owner, ReviewPeriodInMonths, ApplicationId, DocumentTypeId, DocumentCategoryId, DocumentTabsId, DateCreated, ApplicationName, DocumentType, DocumentCategory, DocumentTab, ReviewDate FROM dbo.v_Documents_Details</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="IssueNumber" DataSetColumn="IssueNumber" />
+              <Mapping SourceColumn="IssueDate" DataSetColumn="IssueDate" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="ReviewPeriodInMonths" DataSetColumn="ReviewPeriodInMonths" />
+              <Mapping SourceColumn="ApplicationId" DataSetColumn="ApplicationId" />
+              <Mapping SourceColumn="DocumentTypeId" DataSetColumn="DocumentTypeId" />
+              <Mapping SourceColumn="DocumentCategoryId" DataSetColumn="DocumentCategoryId" />
+              <Mapping SourceColumn="DocumentTabsId" DataSetColumn="DocumentTabsId" />
+              <Mapping SourceColumn="DateCreated" DataSetColumn="DateCreated" />
+              <Mapping SourceColumn="ApplicationName" DataSetColumn="ApplicationName" />
+              <Mapping SourceColumn="DocumentType" DataSetColumn="DocumentType" />
+              <Mapping SourceColumn="DocumentCategory" DataSetColumn="DocumentCategory" />
+              <Mapping SourceColumn="DocumentTab" DataSetColumn="DocumentTab" />
+              <Mapping SourceColumn="ReviewDate" DataSetColumn="ReviewDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="hovisexcellence_dbDataSetV2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="hovisexcellence_dbDataSetV2" msprop:Generator_UserDSName="hovisexcellence_dbDataSetV2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_Documents_Details" msprop:Generator_TableClassName="v_Documents_DetailsDataTable" msprop:Generator_TableVarName="tablev_Documents_Details" msprop:Generator_TablePropName="v_Documents_Details" msprop:Generator_RowDeletingName="v_Documents_DetailsRowDeleting" msprop:Generator_RowChangingName="v_Documents_DetailsRowChanging" msprop:Generator_RowEvHandlerName="v_Documents_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="v_Documents_DetailsRowDeleted" msprop:Generator_UserTableName="v_Documents_Details" msprop:Generator_RowChangedName="v_Documents_DetailsRowChanged" msprop:Generator_RowEvArgName="v_Documents_DetailsRowChangeEvent" msprop:Generator_RowClassName="v_Documents_DetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Title" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueNumber" msprop:Generator_ColumnVarNameInTable="columnIssueNumber" msprop:Generator_ColumnPropNameInRow="IssueNumber" msprop:Generator_ColumnPropNameInTable="IssueNumberColumn" msprop:Generator_UserColumnName="IssueNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueDate" msprop:Generator_ColumnVarNameInTable="columnIssueDate" msprop:Generator_ColumnPropNameInRow="IssueDate" msprop:Generator_ColumnPropNameInTable="IssueDateColumn" msprop:Generator_UserColumnName="IssueDate" type="xs:dateTime" />
+              <xs:element name="Description" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_UserColumnName="Owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReviewPeriodInMonths" msprop:Generator_ColumnVarNameInTable="columnReviewPeriodInMonths" msprop:Generator_ColumnPropNameInRow="ReviewPeriodInMonths" msprop:Generator_ColumnPropNameInTable="ReviewPeriodInMonthsColumn" msprop:Generator_UserColumnName="ReviewPeriodInMonths" type="xs:int" />
+              <xs:element name="ApplicationId" msprop:Generator_ColumnVarNameInTable="columnApplicationId" msprop:Generator_ColumnPropNameInRow="ApplicationId" msprop:Generator_ColumnPropNameInTable="ApplicationIdColumn" msprop:Generator_UserColumnName="ApplicationId" type="xs:int" />
+              <xs:element name="DocumentTypeId" msprop:Generator_ColumnVarNameInTable="columnDocumentTypeId" msprop:Generator_ColumnPropNameInRow="DocumentTypeId" msprop:Generator_ColumnPropNameInTable="DocumentTypeIdColumn" msprop:Generator_UserColumnName="DocumentTypeId" type="xs:int" />
+              <xs:element name="DocumentCategoryId" msprop:Generator_ColumnVarNameInTable="columnDocumentCategoryId" msprop:Generator_ColumnPropNameInRow="DocumentCategoryId" msprop:Generator_ColumnPropNameInTable="DocumentCategoryIdColumn" msprop:Generator_UserColumnName="DocumentCategoryId" type="xs:int" />
+              <xs:element name="DocumentTabsId" msprop:Generator_ColumnVarNameInTable="columnDocumentTabsId" msprop:Generator_ColumnPropNameInRow="DocumentTabsId" msprop:Generator_ColumnPropNameInTable="DocumentTabsIdColumn" msprop:Generator_UserColumnName="DocumentTabsId" type="xs:int" />
+              <xs:element name="DateCreated" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDateCreated" msprop:Generator_ColumnPropNameInRow="DateCreated" msprop:Generator_ColumnPropNameInTable="DateCreatedColumn" msprop:Generator_UserColumnName="DateCreated" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ApplicationName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnApplicationName" msprop:Generator_ColumnPropNameInRow="ApplicationName" msprop:Generator_ColumnPropNameInTable="ApplicationNameColumn" msprop:Generator_UserColumnName="ApplicationName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DocumentType" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDocumentType" msprop:Generator_ColumnPropNameInRow="DocumentType" msprop:Generator_ColumnPropNameInTable="DocumentTypeColumn" msprop:Generator_UserColumnName="DocumentType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DocumentCategory" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDocumentCategory" msprop:Generator_ColumnPropNameInRow="DocumentCategory" msprop:Generator_ColumnPropNameInTable="DocumentCategoryColumn" msprop:Generator_UserColumnName="DocumentCategory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DocumentTab" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDocumentTab" msprop:Generator_ColumnPropNameInRow="DocumentTab" msprop:Generator_ColumnPropNameInTable="DocumentTabColumn" msprop:Generator_UserColumnName="DocumentTab" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReviewDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReviewDate" msprop:Generator_ColumnPropNameInRow="ReviewDate" msprop:Generator_ColumnPropNameInTable="ReviewDateColumn" msprop:Generator_UserColumnName="ReviewDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:v_Documents_Details" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
