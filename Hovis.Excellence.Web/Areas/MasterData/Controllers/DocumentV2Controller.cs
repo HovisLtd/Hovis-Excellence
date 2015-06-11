@@ -24,7 +24,7 @@ namespace Hovis.Excellence.Web.Areas.MasterData.Controllers
             var viewModel = new DocumentListViewModel
             {
                 Applications = db.Applications.OrderBy(x => x.Name).ToList(),
-                Documents = documents.ToList(),
+                Documents = documents.OrderBy(x => x.DocumentCategory.Name).ThenBy(x => x.Title).ToList(),
             };
 
             return View(viewModel);
@@ -106,7 +106,7 @@ namespace Hovis.Excellence.Web.Areas.MasterData.Controllers
                 db.Documents.Add(document);
                 db.SaveChanges();
                 //return RedirectToAction("Index");
-                return RedirectToAction("Index", "DocumentLinks", new { id = document.Id });
+                return RedirectToAction("Index", "DocumentLinks", new { id = document.Id, fromarea = "MasterData", fromdocument = "DocumentV2" });
 
             }
 

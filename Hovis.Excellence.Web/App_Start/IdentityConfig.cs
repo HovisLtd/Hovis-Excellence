@@ -27,13 +27,21 @@ namespace Hovis.Excellence.Web
 
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    //these settings are from here
+            //    //https://console.developers.google.com/project/hovis-excellence/
+            //    ClientId = "745758001127-84v8k3eetk0c8df56f5u6oj4rk3atnbu.apps.googleusercontent.com",
+            //    ClientSecret = "efATD24XoTZQPilgAmSGhis6"
+            //});
+            var google = new GoogleOAuth2AuthenticationOptions()
             {
-                //these settings are from here
-                //https://console.developers.google.com/project/hovis-excellence/
                 ClientId = "745758001127-84v8k3eetk0c8df56f5u6oj4rk3atnbu.apps.googleusercontent.com",
                 ClientSecret = "efATD24XoTZQPilgAmSGhis6",
-            });
+                Provider = new GoogleOAuth2AuthenticationProvider()
+            };
+            google.Scope.Add("email");
+            app.UseGoogleAuthentication(google);
         }
     }
 }

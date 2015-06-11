@@ -16,11 +16,46 @@ namespace Hovis.Excellence.Web.Areas.MasterData.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MasterData/DocumentLinks
-        public ActionResult Index(long? id)
+        public ActionResult Index(long? id, string fromarea, string fromdocument)
         {
+            // Work out if we have just the one attachment to view
+            int NoOfAttachments = 0;
+
+            IQueryable<DocumentLinks> doclink = db.DocumentLinks
+                    .Where(x => x.DocID == id);
+
+            NoOfAttachments = doclink.Count();
+
+            if (NoOfAttachments == 1)
+            {
+                //need to work out how to open a google doc direct from a controller
+                ViewBag.fromarea = fromarea;
+                ViewBag.fromdocument = fromdocument;
+                ViewBag.id = id;
+                return View(db.DocumentLinks.ToList()
+                    .Where(c => c.DocID == id));
+                //return JavaScript("window.open('https://drive.google.com/file/d/0B6ZAuXCcOKuZTkMxd25wempBRDQ/view?usp=sharing')");
+                //return RedirectToAction("GoogleDoc");
+            }
+            else
+            {
+            ViewBag.fromarea = fromarea;
+            ViewBag.fromdocument = fromdocument;
             ViewBag.id = id;
             return View(db.DocumentLinks.ToList()
                 .Where(c => c.DocID == id));
+            }
+
+        }
+
+        public ActionResult GoogleDoc(int? id)
+        {
+            //This gets the document data
+            ViewData["Documentlinks"] = (from documentlink in db.DocumentLinks
+                                         where documentlink.Id.Equals(id)
+                                     select documentlink)
+                                         .ToList();
+            return View();
         }
 
         // GET: MasterData/DocumentLinks/Details/5

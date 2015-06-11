@@ -110,6 +110,9 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvcCheckBoxList">
+      <HintPath>..\packages\MvcCheckBoxList.1.4.4.5\lib\net45\MvcCheckBoxList.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -629,6 +632,15 @@
     <Content Include="hovisexcellence_dbDataSet.xsc">
       <DependentUpon>hovisexcellence_dbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\MasterData\Views\Home\Deleteold.cshtml" />
+    <Content Include="Areas\HealthAndSafety\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\MasterData\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\MasterData\Views\DocumentLinks\GoogleDoc.cshtml" />
+    <Content Include="Areas\BakerofChoice\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\CustomerLoyalty\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\Environment\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\OperationsExcellence\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\PerfectEquipment\Views\Home\Delete.cshtml" />
     <None Include="hovisexcellence_dbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>hovisexcellence_dbDataSet.Designer.cs</LastGenOutput>
@@ -702,9 +714,11 @@
     <Content Include="Views\vDocumentsDetails\Index.cshtml" />
     <Content Include="Views\vDocumentsDetails\Index - Copy.cshtml" />
     <Content Include="Views\vDocumentsDetails\IndexSearch.cshtml" />
+    <Content Include="Views\vDocumentsDetails\SearchByType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\MasterData\Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

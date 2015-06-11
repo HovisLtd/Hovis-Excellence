@@ -3,15 +3,15 @@
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "General Search";
+    ViewBag.Title = "Search by Document Type";
 }
 
 
 <div class="content-wrap no-padding">
     <section class="panel panel-info">
-        <header class="panel-heading">Environment Policy Manuals</header>
+        <header class="panel-heading">Environment Policy Manuals Search by Document Type</header>
         <div class="panel-body">
-@using (Html.BeginForm("IndexSearch", "vDocumentsDetails", FormMethod.Get, new { id = "IndexSearch" }))
+@using (Html.BeginForm("SearchByType", "vDocumentsDetails", FormMethod.Get, new { id = "SearchByType" }))
 {
     <div class="container">
         <div class="row">

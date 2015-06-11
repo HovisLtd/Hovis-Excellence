@@ -6,7 +6,9 @@
 <div class="content-wrap">
     <div class="row">
         <div class="col-lg-12">
+            @{ string FromDocument = ViewBag.fromdocument; }
             @Html.ActionLink("Create New", "Create", null, new { id = ViewBag.id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Back to Documents", "Index", FromDocument, new { id = ViewBag.id, area = ViewBag.fromarea }, new { @class = "btn btn-success" })
             <br />
             <br />
             <section class="panel">

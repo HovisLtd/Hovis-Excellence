@@ -65,7 +65,8 @@
                 <header class="panel-heading">Files</header>
                 <div class="panel-body">
                     <div class="fa-hover col-md-3 col-sm-4">
-                        @Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = Model.Id, area = "MasterData" }, new { @class = "btn btn-info btn-xs" })
+                        @Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = Model.Id, area = "MasterData", fromarea = "OperationsExcellence", fromdocument = "Home" }, new { @class = "btn btn-info btn-xs" })
+                        @*@Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = Model.Id, area = "MasterData", fromarea = "OperationsExcellence" }, new { @class = "btn btn-info btn-xs" })*@
                     </div>
                 </div>
             </section>

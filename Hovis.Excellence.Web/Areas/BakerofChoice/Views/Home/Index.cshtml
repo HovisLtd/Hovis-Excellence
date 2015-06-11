@@ -46,33 +46,38 @@
                                             <div id="@string.Join("", Item.TabName, "byCatCollapse", byCatItemIndex)" class="panel-collapse collapse">
                                                <div class="panel-body">
                                                   <table class="table no-margin">
-                <thead>
-                    <tr>
-                        <th class="col-md-5 pd-l-lg">
-                            <span class="pd-l-sm"></span>Name
-                        </th>
-                        <th class="col-md-2">Document Type</th>
-                        <th class="col-md-2"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var document in (ViewData["Documents"] as List<Hovis.Excellence.Web.Models.Document>))
-                    {
-                        if (document.DocumentCategory.Name == byCatItem.CatName && document.DocumentTabs.Name == Item.TabName)
-                        {
-                        <tr>
-                            <td>
-                                <span class="pd-l-sm"></span>
-                                @Html.ActionLink(document.Title, "Index", "Document", new { id = @document.Id }, null)
-                            </td>
-                            <td>@document.DocumentType.Name</td>
-                            <td>
-                                @Html.ActionLink("View", "Index", "Document", new { id = @document.Id }, new { @class = "btn btn-xs btn-success" })
-                            </td>
-                        </tr>
-                        }
-                    }
-                </tbody>
+                                                      <thead>
+                                                          <tr>
+                                                              <th class="col-md-6 pd-l-lg">
+                                                                  <span class="pd-l-sm"></span>Name
+                                                              </th>
+                                                              <th class="col-md-2">Type</th>
+                                                              <th class="col-md-1">Issue Number</th>
+                                                              <th class="col-md-1">Issue Date</th>
+                                                              <th class="col-md-2">Action</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          @foreach (var document in (ViewData["Documents"] as List<Hovis.Excellence.Web.Models.Document>))
+                                                          {
+                                                              if (document.DocumentCategory.Name == byCatItem.CatName && document.DocumentTabs.Name == Item.TabName)
+                                                              {
+                                                                  <tr>
+                                                                      <td>
+                                                                          <span class="pd-l-sm"></span>
+                                                                          @Html.ActionLink(document.Title, "Index", "Document", new { id = @document.Id }, null)
+                                                                      </td>
+                                                                      <td>@document.DocumentType.Name</td>
+                                                                      <td>@document.IssueNumber</td>
+                                                                      <td>@document.IssueDate.ToString("dd-MM-yyyy")</td>
+                                                                      <td>
+                                                                          @Html.ActionLink("Details", "Index", "Document", new { id = @document.Id }, new { @class = "btn btn-xs btn-success" }) @Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = @document.Id, area = "MasterData", fromarea = "BakerofChoice", fromdocument = "Home" }, new { @class = "btn btn-info btn-xs" }) @if (User.IsInRole("Admin"))
+                                                                          {@Html.ActionLink("Delete", "Delete", "Home", new { id = @document.Id, area = "BakerofChoice", fromarea = "BakerofChoice" }, new { @class = "btn btn-danger btn-xs" })}
+                                                                      </td>
+                                                                  </tr>
+                                                              }
+                                                          }
+                                                      </tbody>
             </table>
                                                 </div>
                                             </div>
@@ -103,28 +108,33 @@
             <table class="table no-margin">
                 <thead>
                     <tr>
-                        <th class="col-md-5 pd-l-lg">
+                        <th class="col-md-6 pd-l-lg">
                             <span class="pd-l-sm"></span>Name
                         </th>
-                        <th class="col-md-2">Document Type</th>
-                        <th class="col-md-2"></th>
+                        <th class="col-md-2">Type</th>
+                        <th class="col-md-1">Issue Number</th>
+                        <th class="col-md-1">Issue Date</th>
+                        <th class="col-md-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var document in (ViewData["Documents"] as List<Hovis.Excellence.Web.Models.Document>))
                     {
                         if (document.DocumentCategory.Name == byCatItem.CatName && document.DocumentTabs.Name == Item.TabName)
-                        {                        
-                        <tr>
-                            <td>
-                                <span class="pd-l-sm"></span>
-                                @Html.ActionLink(document.Title, "Index", "Document", new { id = @document.Id }, null)
-                            </td>
-                            <td>@document.DocumentType.Name</td>
-                            <td>
-                                @Html.ActionLink("View", "Index", "Document", new { id = @document.Id }, new { @class = "btn btn-xs btn-success" })
-                            </td>
-                        </tr>
+                        {
+                            <tr>
+                                <td>
+                                    <span class="pd-l-sm"></span>
+                                    @Html.ActionLink(document.Title, "Index", "Document", new { id = @document.Id }, null)
+                                </td>
+                                <td>@document.DocumentType.Name</td>
+                                <td>@document.IssueNumber</td>
+                                <td>@document.IssueDate.ToString("dd-MM-yyyy")</td>
+                                <td>
+                                    @Html.ActionLink("Details", "Index", "Document", new { id = @document.Id }, new { @class = "btn btn-xs btn-success" }) @Html.ActionLink("Docs", "Index", "DocumentLinks", new { id = @document.Id, area = "MasterData", fromarea = "BakerofChoice", fromdocument = "Home" }, new { @class = "btn btn-info btn-xs" }) @if (User.IsInRole("Admin"))
+                                    {@Html.ActionLink("Delete", "Delete", "Home", new { id = @document.Id, area = "BakerofChoice", fromarea = "BakerofChoice" }, new { @class = "btn btn-danger btn-xs" })}
+                                </td>
+                            </tr>
                         }
                     }
                 </tbody>

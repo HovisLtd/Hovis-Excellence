@@ -32,6 +32,10 @@ namespace Hovis.Excellence.Web.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+
+            // fix to stop null return below
+            ControllerContext.HttpContext.Session.RemoveAll();
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
 
             if (loginInfo == null)
